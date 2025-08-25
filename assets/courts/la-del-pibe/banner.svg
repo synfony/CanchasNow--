@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" class="w-full h-full">
+  <defs>
+    <linearGradient id="grassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="50%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <pattern id="grassTexture" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect width="4" height="4" fill="url(#grassGradient)"/>
+      <path d="M0,2 L2,0 L4,2 L2,4 Z" fill="#16a34a" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1200" height="250" fill="url(#skyGradient)"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="200" cy="60" rx="40" ry="20" fill="white" opacity="0.8"/>
+  <ellipse cx="220" cy="50" rx="50" ry="25" fill="white" opacity="0.8"/>
+  <ellipse cx="240" cy="65" rx="35" ry="18" fill="white" opacity="0.8"/>
+  
+  <ellipse cx="800" cy="80" rx="45" ry="22" fill="white" opacity="0.6"/>
+  <ellipse cx="825" cy="70" rx="55" ry="28" fill="white" opacity="0.6"/>
+  
+  <!-- Stadium structure -->
+  <rect x="50" y="200" width="1100" height="50" fill="#374151" rx="5"/>
+  <rect x="100" y="180" width="100" height="70" fill="#6b7280" rx="3"/>
+  <rect x="1000" y="180" width="100" height="70" fill="#6b7280" rx="3"/>
+  
+  <!-- Football field -->
+  <rect x="0" y="250" width="1200" height="150" fill="url(#grassTexture)"/>
+  
+  <!-- Field markings -->
+  <!-- Center line -->
+  <line x1="600" y1="250" x2="600" y2="400" stroke="white" stroke-width="3"/>
+  <!-- Center circle -->
+  <circle cx="600" cy="325" r="50" fill="none" stroke="white" stroke-width="3"/>
+  <circle cx="600" cy="325" r="2" fill="white"/>
+  
+  <!-- Penalty areas -->
+  <rect x="50" y="280" width="80" height="90" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="1070" y="280" width="80" height="90" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Goal areas -->
+  <rect x="50" y="300" width="30" height="50" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="1120" y="300" width="30" height="50" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Goals -->
+  <rect x="30" y="310" width="20" height="30" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+  <rect x="1150" y="310" width="20" height="30" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Corner arcs -->
+  <path d="M 50 250 A 10 10 0 0 1 60 260" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M 1150 250 A 10 10 0 0 0 1140 260" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M 50 400 A 10 10 0 0 0 60 390" fill="none" stroke="white" stroke-width="2"/>
+  <path d="M 1150 400 A 10 10 0 0 1 1140 390" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Stadium lights -->
+  <rect x="150" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="154" cy="135" r="12" fill="#fbbf24"/>
+  <rect x="350" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="354" cy="135" r="12" fill="#fbbf24"/>
+  <rect x="550" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="554" cy="135" r="12" fill="#fbbf24"/>
+  <rect x="650" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="654" cy="135" r="12" fill="#fbbf24"/>
+  <rect x="850" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="854" cy="135" r="12" fill="#fbbf24"/>
+  <rect x="1050" y="140" width="8" height="60" fill="#374151"/>
+  <circle cx="1054" cy="135" r="12" fill="#fbbf24"/>
+  
+  <!-- Title overlay -->
+  <rect x="0" y="0" width="1200" height="400" fill="rgba(0,0,0,0.3)"/>
+  <text x="600" y="200" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="60" font-weight="bold">La del Pibe</text>
+  <text x="600" y="240" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="24">Premium Football Experience</text>
+</svg>

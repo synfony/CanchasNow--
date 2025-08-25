@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="w-full h-full">
+  <defs>
+    <linearGradient id="victoryClayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+    <pattern id="clayCourtTexture" patternUnits="userSpaceOnUse" width="10" height="10">
+      <rect width="10" height="10" fill="#dc2626"/>
+      <circle cx="2" cy="2" r="0.8" fill="#ef4444" opacity="0.7"/>
+      <circle cx="8" cy="8" r="0.8" fill="#ef4444" opacity="0.7"/>
+      <circle cx="8" cy="2" r="0.5" fill="#b91c1c" opacity="0.5"/>
+      <circle cx="2" cy="8" r="0.5" fill="#b91c1c" opacity="0.5"/>
+      <circle cx="5" cy="5" r="0.3" fill="#7f1d1d" opacity="0.3"/>
+    </pattern>
+    <linearGradient id="clubhouseGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151"/>
+      <stop offset="100%" style="stop-color:#1f2937"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Clubhouse structure -->
+  <rect width="800" height="150" fill="url(#clubhouseGradient)"/>
+  
+  <!-- Elegant clubhouse facade -->
+  <rect x="100" y="20" width="600" height="100" fill="#4b5563"/>
+  
+  <!-- Classical columns -->
+  <rect x="150" y="0" width="15" height="120" fill="#6b7280"/>
+  <rect x="250" y="0" width="15" height="120" fill="#6b7280"/>
+  <rect x="350" y="0" width="15" height="120" fill="#6b7280"/>
+  <rect x="450" y="0" width="15" height="120" fill="#6b7280"/>
+  <rect x="550" y="0" width="15" height="120" fill="#6b7280"/>
+  <rect x="650" y="0" width="15" height="120" fill="#6b7280"/>
+  
+  <!-- Arched windows -->
+  <rect x="180" y="40" width="25" height="40" fill="#1f2937" rx="12"/>
+  <rect x="280" y="40" width="25" height="40" fill="#1f2937" rx="12"/>
+  <rect x="380" y="40" width="25" height="40" fill="#1f2937" rx="12"/>
+  <rect x="480" y="40" width="25" height="40" fill="#1f2937" rx="12"/>
+  <rect x="580" y="40" width="25" height="40" fill="#1f2937" rx="12"/>
+  
+  <!-- Tournament grandstand -->
+  <polygon points="50,120 150,110 200,110 250,120 250,150 50,150" fill="#6b7280"/>
+  <polygon points="550,120 650,110 700,110 750,120 750,150 550,150" fill="#6b7280"/>
+  
+  <!-- VIP seating -->
+  <rect x="60" y="125" width="180" height="20" fill="#dc2626"/>
+  <rect x="560" y="125" width="180" height="20" fill="#dc2626"/>
+  
+  <!-- Premium clay courts -->
+  <rect x="0" y="150" width="800" height="450" fill="url(#clayCourtTexture)"/>
+  
+  <!-- Center court (Championship court) -->
+  <rect x="100" y="200" width="280" height="150" fill="none" stroke="white" stroke-width="4"/>
+  
+  <!-- Service boxes -->
+  <rect x="100" y="220" width="140" height="55" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="240" y="220" width="140" height="55" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="100" y="295" width="140" height="55" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="240" y="295" width="140" height="55" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Net line -->
+  <line x1="240" y1="200" x2="240" y2="350" stroke="white" stroke-width="3"/>
+  
+  <!-- Center service lines -->
+  <line x1="170" y1="220" x2="170" y2="275" stroke="white" stroke-width="1"/>
+  <line x1="310" y1="220" x2="310" y2="275" stroke="white" stroke-width="1"/>
+  <line x1="170" y1="295" x2="170" y2="350" stroke="white" stroke-width="1"/>
+  <line x1="310" y1="295" x2="310" y2="350" stroke="white" stroke-width="1"/>
+  
+  <!-- Court 2 -->
+  <rect x="450" y="220" width="250" height="130" fill="none" stroke="white" stroke-width="3"/>
+  <rect x="450" y="240" width="125" height="45" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="575" y="240" width="125" height="45" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="450" y="305" width="125" height="45" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="575" y="305" width="125" height="45" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="575" y1="220" x2="575" y2="350" stroke="white" stroke-width="3"/>
+  <line x1="512" y1="240" x2="512" y2="285" stroke="white" stroke-width="1"/>
+  <line x1="637" y1="240" x2="637" y2="285" stroke="white" stroke-width="1"/>
+  <line x1="512" y1="305" x2="512" y2="350" stroke="white" stroke-width="1"/>
+  <line x1="637" y1="305" x2="637" y2="350" stroke="white" stroke-width="1"/>
+  
+  <!-- Practice courts -->
+  <rect x="100" y="400" width="180" height="100" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="190" y1="400" x2="190" y2="500" stroke="white" stroke-width="2"/>
+  <rect x="100" y="420" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="190" y="420" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="100" y="470" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="190" y="470" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  
+  <rect x="350" y="400" width="180" height="100" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="440" y1="400" x2="440" y2="500" stroke="white" stroke-width="2"/>
+  <rect x="350" y="420" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="440" y="420" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="350" y="470" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  <rect x="440" y="470" width="90" height="30" fill="none" stroke="white" stroke-width="1"/>
+  
+  <!-- Tennis nets -->
+  <rect x="238" y="195" width="4" height="10" fill="#e5e7eb"/>
+  <rect x="573" y="215" width="4" height="8" fill="#e5e7eb"/>
+  <rect x="188" y="395" width="4" height="8" fill="#e5e7eb"/>
+  <rect x="438" y="395" width="4" height="8" fill="#e5e7eb"/>
+  
+  <!-- Umpire chairs -->
+  <rect x="235" y="180" width="10" height="15" fill="#6b7280"/>
+  <rect x="570" y="200" width="10" height="15" fill="#6b7280"/>
+  
+  <!-- Professional lighting -->
+  <rect x="120" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="123" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="220" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="223" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="320" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="323" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="420" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="423" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="520" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="523" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="620" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="623" cy="95" r="8" fill="#fbbf24"/>
+  <rect x="720" y="100" width="6" height="50" fill="#374151"/>
+  <circle cx="723" cy="95" r="8" fill="#fbbf24"/>
+  
+  <!-- Tournament scoreboard -->
+  <rect x="320" y="80" width="160" height="70" fill="#1f2937"/>
+  <rect x="325" y="85" width="150" height="60" fill="#dc2626"/>
+  <text x="400" y="105" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">VICTORY ARENA</text>
+  <text x="365" y="120" text-anchor="middle" fill="white" font-family="Arial" font-size="8">NADAL</text>
+  <text x="435" y="120" text-anchor="middle" fill="white" font-family="Arial" font-size="8">FEDERER</text>
+  <text x="365" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">6-4 6-2</text>
+  <text x="435" y="135" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">4-6 2-6</text>
+  
+  <!-- Players on court -->
+  <circle cx="160" cy="250" r="4" fill="#1f2937"/>
+  <rect x="158" y="254" width="4" height="10" fill="#1f2937"/>
+  <rect x="156" y="264" width="8" height="6" fill="#1f2937"/>
+  
+  <circle cx="320" cy="320" r="4" fill="#1f2937"/>
+  <rect x="318" y="324" width="4" height="10" fill="#1f2937"/>
+  <rect x="316" y="334" width="8" height="6" fill="#1f2937"/>
+  
+  <circle cx="500" cy="280" r="3" fill="#1f2937"/>
+  <rect x="498" y="283" width="4" height="8" fill="#1f2937"/>
+  <rect x="496" y="291" width="8" height="5" fill="#1f2937"/>
+  
+  <circle cx="650" cy="300" r="3" fill="#1f2937"/>
+  <rect x="648" y="303" width="4" height="8" fill="#1f2937"/>
+  <rect x="646" y="311" width="8" height="5" fill="#1f2937"/>
+  
+  <!-- Tennis balls -->
+  <circle cx="200" cy="270" r="3" fill="#fbbf24"/>
+  <path d="M197 270 A 3 3 0 0 1 203 270" fill="none" stroke="white" stroke-width="0.5"/>
+  
+  <circle cx="580" cy="260" r="3" fill="#fbbf24"/>
+  <path d="M577 260 A 3 3 0 0 1 583 260" fill="none" stroke="white" stroke-width="0.5"/>
+  
+  <!-- Ball machine -->
+  <rect x="90" y="365" width="15" height="10" fill="#374151"/>
+  <circle cx="97" cy="370" r="3" fill="#fbbf24"/>
+  
+  <!-- Pro shop -->
+  <rect x="600" y="520" width="80" height="30" fill="#6b7280"/>
+  <text x="640" y="540" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">PRO SHOP</text>
+  
+  <!-- Tennis academy office -->
+  <rect x="120" y="520" width="100" height="30" fill="#6b7280"/>
+  <text x="170" y="540" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">TENNIS ACADEMY</text>
+  
+  <!-- Equipment storage -->
+  <rect x="720" y="200" width="60" height="40" fill="#6b7280"/>
+  <rect x="725" y="205" width="15" height="30" fill="#374151"/>
+  <rect x="745" y="205" width="15" height="30" fill="#374151"/>
+  <rect x="765" y="205" width="10" height="30" fill="#374151"/>
+</svg>
