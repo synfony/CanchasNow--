@@ -5,12 +5,12 @@ function createCourtCard(court) {
     card.className = 'court-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2';
     card.dataset.sportType = court.sport.toLowerCase();
     card.dataset.courtId = court.id;
-    
+
     card.innerHTML = `
         <div class="relative">
             <img src="assets/courts/${court.id}/banner.svg" 
                  alt="${court.name}" 
-                 class="w-full h-48 object-cover"
+                 class="w-full h-48 object-cover"h3
                  onerror="this.src='assets/icons/logo.svg'; this.className='w-full h-48 object-contain bg-gray-100 p-8'">
             
             <div class="absolute top-3 left-3">
@@ -108,19 +108,19 @@ function createCourtCard(court) {
             </div>
         </div>
     `;
-    
+
     // Add animations
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.classList.add('shadow-2xl');
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.classList.remove('shadow-2xl');
     });
-    
+
     // Update favorite status
     updateFavoriteStatus(court.id);
-    
+
     return card;
 }
 
@@ -140,7 +140,7 @@ function getAvailabilityBadge(courtId) {
     // Mock availability check based on current time and court bookings
     const now = new Date();
     const currentHour = now.getHours();
-    
+
     // Simple availability logic
     if (currentHour < 6 || currentHour > 22) {
         return '<span class="status-closed">Closed</span>';
@@ -156,9 +156,9 @@ function isCourtAvailableNow(courtId) {
     const today = new Date().toISOString().split('T')[0];
     const currentHour = new Date().getHours();
     const currentTime = currentHour.toString().padStart(2, '0') + ':00';
-    
+
     const todayBookings = getBookingsForCourt(courtId, today);
-    return !todayBookings.some(booking => 
+    return !todayBookings.some(booking =>
         booking.time === currentTime && booking.status === 'confirmed'
     );
 }
@@ -167,35 +167,35 @@ function generateRatingStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    
+
     let starsHtml = '';
-    
+
     // Full stars
     for (let i = 0; i < fullStars; i++) {
         starsHtml += '<i class="fas fa-star text-yellow-400 text-sm"></i>';
     }
-    
+
     // Half star
     if (hasHalfStar) {
         starsHtml += '<i class="fas fa-star-half-alt text-yellow-400 text-sm"></i>';
     }
-    
+
     // Empty stars
     for (let i = 0; i < emptyStars; i++) {
         starsHtml += '<i class="far fa-star text-gray-300 text-sm"></i>';
     }
-    
+
     return starsHtml;
 }
 
 function toggleFavorite(courtId) {
     if (!requireAuth()) return;
-    
+
     const currentUser = getCurrentUser();
     const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.id}`) || '[]');
     const favoriteBtn = document.querySelector(`.favorite-btn[data-court-id="${courtId}"]`);
     const favoriteIcon = document.querySelector(`.favorite-icon[data-court-id="${courtId}"]`);
-    
+
     if (favorites.includes(courtId)) {
         // Remove from favorites
         const index = favorites.indexOf(courtId);
@@ -210,17 +210,17 @@ function toggleFavorite(courtId) {
         favoriteIcon.classList.add('text-red-500');
         showNotification('Added to favorites', 'success');
     }
-    
+
     localStorage.setItem(`favorites_${currentUser.id}`, JSON.stringify(favorites));
 }
 
 function updateFavoriteStatus(courtId) {
     const currentUser = getCurrentUser();
     if (!currentUser) return;
-    
+
     const favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser.id}`) || '[]');
     const favoriteIcon = document.querySelector(`.favorite-icon[data-court-id="${courtId}"]`);
-    
+
     if (favoriteIcon && favorites.includes(courtId)) {
         favoriteIcon.classList.remove('text-gray-400');
         favoriteIcon.classList.add('text-red-500');
@@ -233,11 +233,11 @@ function viewCourtDetails(courtId) {
 
 function quickBook(courtId) {
     if (!requireAuth()) return;
-    
+
     // Create quick booking modal
     const modal = createQuickBookModal(courtId);
     document.body.appendChild(modal);
-    
+
     setTimeout(() => {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -247,16 +247,16 @@ function quickBook(courtId) {
 function createQuickBookModal(courtId) {
     const court = courts.find(c => c.id === courtId);
     if (!court) return null;
-    
+
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50';
     modal.id = 'quickBookModal';
-    
+
     const today = new Date().toISOString().split('T')[0];
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const tomorrowStr = tomorrow.toISOString().split('T')[0];
-    
+
     modal.innerHTML = `
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 modal-enter">
             <div class="flex justify-between items-center mb-6">
@@ -319,7 +319,7 @@ function createQuickBookModal(courtId) {
             </form>
         </div>
     `;
-    
+
     return modal;
 }
 
@@ -332,34 +332,34 @@ function generateTimeOptions() {
     return options.join('');
 }
 
-window.closeQuickBookModal = function() {
+window.closeQuickBookModal = function () {
     const modal = document.getElementById('quickBookModal');
     if (modal) {
         modal.remove();
     }
 }
 
-window.processQuickBook = function(event, courtId) {
+window.processQuickBook = function (event, courtId) {
     event.preventDefault();
-    
+
     const date = document.getElementById('quickBookDate').value;
     const time = document.getElementById('quickBookTime').value;
     const duration = parseInt(document.getElementById('quickBookDuration').value);
-    
+
     if (!time) {
         showNotification('Please select a time', 'error');
         return;
     }
-    
+
     // Check availability
     if (!isSlotAvailable(courtId, date, time)) {
         showNotification('Selected time slot is not available', 'error');
         return;
     }
-    
+
     // Close modal and redirect to detailed booking
     closeQuickBookModal();
-    
+
     // Store quick book data and redirect
     sessionStorage.setItem('quickBookData', JSON.stringify({
         courtId,
@@ -367,17 +367,17 @@ window.processQuickBook = function(event, courtId) {
         time,
         duration
     }));
-    
+
     window.location.href = `courts/${courtId}.html`;
 }
 
 // Court card filtering and sorting
 function filterCourtCards(filters) {
     const courtCards = document.querySelectorAll('.court-card');
-    
+
     courtCards.forEach(card => {
         let shouldShow = true;
-        
+
         // Filter by sport
         if (filters.sport && filters.sport !== 'all') {
             const cardSport = card.dataset.sportType;
@@ -385,7 +385,7 @@ function filterCourtCards(filters) {
                 shouldShow = false;
             }
         }
-        
+
         // Filter by price range
         if (filters.maxPrice) {
             const cardPrice = extractPriceFromCard(card);
@@ -393,7 +393,7 @@ function filterCourtCards(filters) {
                 shouldShow = false;
             }
         }
-        
+
         // Filter by rating
         if (filters.minRating) {
             const cardRating = extractRatingFromCard(card);
@@ -401,7 +401,7 @@ function filterCourtCards(filters) {
                 shouldShow = false;
             }
         }
-        
+
         // Filter by availability
         if (filters.availableOnly) {
             const availabilityBadge = card.querySelector('.status-available');
@@ -409,7 +409,7 @@ function filterCourtCards(filters) {
                 shouldShow = false;
             }
         }
-        
+
         // Show/hide card
         if (shouldShow) {
             card.style.display = 'block';
@@ -423,34 +423,34 @@ function filterCourtCards(filters) {
 function sortCourtCards(sortBy) {
     const container = document.getElementById('courts-grid');
     const cards = Array.from(container.querySelectorAll('.court-card'));
-    
+
     cards.sort((a, b) => {
         switch (sortBy) {
             case 'name':
                 const nameA = a.querySelector('h3').textContent;
                 const nameB = b.querySelector('h3').textContent;
                 return nameA.localeCompare(nameB);
-                
+
             case 'price-low':
                 const priceA = extractPriceFromCard(a);
                 const priceB = extractPriceFromCard(b);
                 return priceA - priceB;
-                
+
             case 'price-high':
                 const priceA2 = extractPriceFromCard(a);
                 const priceB2 = extractPriceFromCard(b);
                 return priceB2 - priceA2;
-                
+
             case 'rating':
                 const ratingA = extractRatingFromCard(a);
                 const ratingB = extractRatingFromCard(b);
                 return ratingB - ratingA;
-                
+
             default:
                 return 0;
         }
     });
-    
+
     // Re-append sorted cards
     cards.forEach(card => container.appendChild(card));
 }
@@ -477,7 +477,7 @@ function initializeCourtCards() {
             updateFavoriteStatus(courtId);
         });
     }
-    
+
     // Setup card animations
     setupCourtCardAnimations();
 }
@@ -492,7 +492,7 @@ function setupCourtCardAnimations() {
     }, {
         threshold: 0.1
     });
-    
+
     document.querySelectorAll('.court-card').forEach(card => {
         observer.observe(card);
     });

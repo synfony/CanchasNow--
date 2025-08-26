@@ -30,12 +30,12 @@ const paymentMethods = {
 function initializePaymentModal(bookingData) {
     const modal = createPaymentModal(bookingData);
     document.body.appendChild(modal);
-    
+
     setTimeout(() => {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     }, 100);
-    
+
     setupPaymentHandlers(bookingData);
 }
 
@@ -43,9 +43,9 @@ function createPaymentModal(bookingData) {
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50';
     modal.id = 'paymentModal';
-    
+
     const court = courts.find(c => c.id === bookingData.courtId);
-    
+
     modal.innerHTML = `
         <div class="bg-white rounded-lg p-8 max-w-lg w-full mx-4 modal-enter">
             <div class="flex justify-between items-center mb-6">
@@ -114,7 +114,7 @@ function createPaymentModal(bookingData) {
             </div>
         </div>
     `;
-    
+
     return modal;
 }
 
@@ -123,25 +123,25 @@ let currentBookingData = null;
 
 function setupPaymentHandlers(bookingData) {
     currentBookingData = bookingData;
-    
+
     // Setup form validation
     setupPaymentFormValidation();
 }
 
 function selectPaymentMethod(method) {
     selectedPaymentMethod = method;
-    
+
     // Update UI
     document.querySelectorAll('.payment-method-card').forEach(card => {
         card.classList.remove('border-blue-500', 'bg-blue-50');
     });
-    
+
     const selectedCard = document.querySelector(`[data-method="${method}"]`);
     selectedCard.classList.add('border-blue-500', 'bg-blue-50');
-    
+
     // Show payment form
     showPaymentForm(method);
-    
+
     // Enable payment button
     document.getElementById('processPaymentBtn').disabled = false;
 }
@@ -149,9 +149,9 @@ function selectPaymentMethod(method) {
 function showPaymentForm(method) {
     const paymentForm = document.getElementById('paymentForm');
     const methodConfig = paymentMethods[method];
-    
+
     let formHtml = '';
-    
+
     switch (method) {
         case 'nequi':
             formHtml = createNequiForm();
@@ -164,10 +164,10 @@ function showPaymentForm(method) {
             formHtml = createEfectyForm();
             break;
     }
-    
+
     paymentForm.innerHTML = formHtml;
     paymentForm.classList.remove('hidden');
-    
+
     // Focus on first input
     const firstInput = paymentForm.querySelector('input');
     if (firstInput) {
@@ -206,7 +206,7 @@ function createNequiForm() {
 function createCreditCardForm(type) {
     const cardName = type === 'visa' ? 'Visa' : 'MasterCard';
     const color = type === 'visa' ? 'blue' : 'red';
-    
+
     return `
         <div class="border border-${color}-200 rounded-lg p-4 mb-4">
             <div class="flex items-center mb-4">
@@ -319,22 +319,22 @@ function processPayment() {
         showNotification('Please select a payment method', 'error');
         return;
     }
-    
+
     // Validate payment form
     if (!validatePaymentForm()) {
         return;
     }
-    
+
     // Show processing state
     const processBtn = document.getElementById('processPaymentBtn');
     const originalText = processBtn.textContent;
     processBtn.disabled = true;
     processBtn.innerHTML = '<div class="spinner"></div> Processing...';
-    
+
     // Simulate payment processing
     setTimeout(() => {
         const success = Math.random() > 0.1; // 90% success rate for demo
-        
+
         if (success) {
             completePayment();
         } else {
@@ -373,51 +373,51 @@ function validateCreditCardForm() {
     const expiryDate = document.getElementById('expiryDate').value;
     const cvv = document.getElementById('cvv').value;
     const cardholderName = document.getElementById('cardholderName').value;
-    
+
     if (!cardNumber || cardNumber.length < 13) {
         showNotification('Please enter a valid card number', 'error');
         return false;
     }
-    
+
     if (!expiryDate || !expiryDate.match(/^\d{2}\/\d{2}$/)) {
         showNotification('Please enter a valid expiry date (MM/YY)', 'error');
         return false;
     }
-    
+
     if (!cvv || cvv.length < 3) {
         showNotification('Please enter a valid CVV', 'error');
         return false;
     }
-    
+
     if (!cardholderName || cardholderName.length < 2) {
         showNotification('Please enter the cardholder name', 'error');
         return false;
     }
-    
+
     return true;
 }
 
 function validateEfectyForm() {
     const name = document.getElementById('efectyName').value;
     const id = document.getElementById('efectyId').value;
-    
+
     if (!name || name.length < 3) {
         showNotification('Please enter your full name', 'error');
         return false;
     }
-    
+
     if (!id || id.length < 7) {
         showNotification('Please enter a valid ID number', 'error');
         return false;
     }
-    
+
     return true;
 }
 
 function completePayment() {
     // Update booking status
     updateBookingStatus(currentBookingData.id || generateBookingId(), 'confirmed');
-    
+
     // Generate payment receipt
     const paymentData = {
         bookingId: currentBookingData.id || generateBookingId(),
@@ -426,12 +426,12 @@ function completePayment() {
         timestamp: new Date().toISOString(),
         status: 'completed'
     };
-    
+
     savePaymentRecord(paymentData);
-    
+
     // Close payment modal
     closePaymentModal();
-    
+
     // Show success message
     showPaymentSuccess(paymentData);
 }
@@ -442,11 +442,11 @@ function showPaymentError() {
 
 function showPaymentSuccess(paymentData) {
     const court = courts.find(c => c.id === currentBookingData.courtId);
-    
+
     const modal = document.createElement('div');
     modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
     modal.id = 'paymentSuccessModal';
-    
+
     modal.innerHTML = `
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 modal-enter">
             <div class="text-center">
@@ -492,7 +492,7 @@ function showPaymentSuccess(paymentData) {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
 }
 
@@ -510,7 +510,7 @@ function closePaymentSuccessModal() {
     if (modal) {
         modal.remove();
     }
-    
+
     // Redirect to booking confirmation page or home
     setTimeout(() => {
         window.location.href = 'index.html';
@@ -520,7 +520,7 @@ function closePaymentSuccessModal() {
 function updateBookingStatus(bookingId, status) {
     const bookings = JSON.parse(localStorage.getItem('courtBookings') || '[]');
     const bookingIndex = bookings.findIndex(b => b.id === bookingId);
-    
+
     if (bookingIndex !== -1) {
         bookings[bookingIndex].status = status;
         bookings[bookingIndex].updatedAt = new Date().toISOString();
