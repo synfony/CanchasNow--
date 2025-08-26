@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
 </head>
+
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
@@ -23,7 +25,8 @@
                     <a href="../index.html" class="text-gray-700 hover:text-blue-600 transition duration-300">
                         <i class="fas fa-arrow-left mr-2"></i>Back to Courts
                     </a>
-                    <button onclick="openLoginModal()" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+                    <button onclick="openLoginModal()"
+                        class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                         Book Now
                     </button>
                 </div>
@@ -34,7 +37,8 @@
     <!-- Hero Section -->
     <section class="pt-16 relative">
         <div class="h-96 bg-gradient-to-r from-orange-600 to-red-600 relative overflow-hidden">
-            <img src="../assets/courts/champions-court/banner.svg" alt="Champions Court" class="w-full h-full object-cover opacity-80">
+            <img src="../assets/courts/champions-court/banner.svg" alt="Champions Court"
+                class="w-full h-full object-cover opacity-80">
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
             <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center text-white">
@@ -68,12 +72,12 @@
                 <div class="bg-white rounded-xl shadow-lg p-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">About Champions Court</h2>
                     <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        Champions Court is the premier basketball destination in Barranquilla, featuring NBA-standard 
-                        hardwood flooring and professional-grade hoops. Our state-of-the-art facility has hosted 
-                        numerous tournaments and training camps, making it the choice of serious basketball players 
+                        Champions Court is the premier basketball destination in Barranquilla, featuring NBA-standard
+                        hardwood flooring and professional-grade hoops. Our state-of-the-art facility has hosted
+                        numerous tournaments and training camps, making it the choice of serious basketball players
                         and recreational enthusiasts alike.
                     </p>
-                    
+
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="flex items-center space-x-3">
                             <i class="fas fa-check-circle text-green-500 text-xl"></i>
@@ -128,7 +132,8 @@
                 <div class="bg-white rounded-xl shadow-lg p-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">Gallery</h2>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <img src="../assets/courts/champions-court/gallery-1.svg" alt="Court Interior" class="rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        <img src="../assets/courts/champions-court/gallery-1.svg" alt="Court Interior"
+                            class="rounded-lg shadow-md hover:shadow-lg transition duration-300">
                         <div class="bg-gray-100 rounded-lg h-48 flex items-center justify-center">
                             <i class="fas fa-images text-gray-400 text-4xl"></i>
                             <span class="ml-3 text-gray-500">More photos coming soon</span>
@@ -163,9 +168,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-gray-100 rounded-lg h-48 flex items-center justify-center">
-                            <i class="fas fa-map text-gray-400 text-4xl"></i>
-                            <span class="ml-3 text-gray-500">Interactive Map Coming Soon</span>
+                        <div class="bg-gray-100 rounded-lg overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.4814872545794!2d-74.80136252381533!3d10.926955322079204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef5d29491d9c397%3A0xb7aafddf3eb3c5ef!2sComplejo%20Deportivo%20%22El%20Pibe%22%20Valderrama!5e0!3m2!1ses-419!2sco!4v1756212510811!5m2!1ses-419!2sco"
+                                class="w-full h-64 border-0" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" alt="Error al cargar el mapa">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -175,7 +183,7 @@
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-xl shadow-lg p-8 sticky top-24">
                     <h3 class="text-2xl font-bold text-gray-900 mb-6">Book Your Game</h3>
-                    
+
                     <!-- Pricing Display -->
                     <div class="bg-orange-50 rounded-lg p-4 mb-6">
                         <div class="flex justify-between items-center mb-2">
@@ -192,18 +200,19 @@
                     <form onsubmit="handleBooking(event)">
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Select Date</label>
-                            <input type="date" id="bookingDate" required min="" 
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+                            <input type="date" id="bookingDate" required min=""
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
                         </div>
-                        
+
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-bold mb-2">Available Times</label>
                             <div id="timeSlots" class="grid grid-cols-2 gap-2">
                                 <!-- Time slots will be generated here -->
                             </div>
                         </div>
-                        
-                        <button type="submit" class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition duration-300 font-semibold">
+
+                        <button type="submit"
+                            class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition duration-300 font-semibold">
                             Book Now
                         </button>
                     </form>
@@ -242,10 +251,12 @@
             </div>
             <p class="text-gray-600 mb-6">Please login to make a reservation at Champions Court.</p>
             <div class="space-y-3">
-                <button onclick="window.location.href='../login.html'" class="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">
+                <button onclick="window.location.href='../login.html'"
+                    class="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">
                     Login to Your Account
                 </button>
-                <button onclick="closeLoginModal()" class="w-full border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition duration-300">
+                <button onclick="closeLoginModal()"
+                    class="w-full border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition duration-300">
                     Continue Browsing
                 </button>
             </div>
@@ -254,7 +265,7 @@
 
     <script>
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('bookingDate').min = today;
             document.getElementById('bookingDate').value = today;
@@ -264,13 +275,13 @@
         function generateTimeSlots() {
             const timeSlotsContainer = document.getElementById('timeSlots');
             const slots = [];
-            
+
             // Generate time slots from 6 AM to 11 PM
             for (let hour = 6; hour <= 22; hour++) {
                 const timeString = hour.toString().padStart(2, '0') + ':00';
                 slots.push(timeString);
             }
-            
+
             timeSlotsContainer.innerHTML = slots.map(time => {
                 const hour = parseInt(time.split(':')[0]);
                 const isPeakHour = hour >= 18 && hour <= 20;
@@ -291,7 +302,7 @@
             document.querySelectorAll('.time-slot').forEach(slot => {
                 slot.classList.remove('bg-orange-600', 'text-white', 'border-orange-600');
             });
-            
+
             // Add selection to clicked slot
             event.target.classList.add('bg-orange-600', 'text-white', 'border-orange-600');
             selectedTime = time;
@@ -299,32 +310,32 @@
 
         function handleBooking(event) {
             event.preventDefault();
-            
+
             if (!selectedTime) {
                 alert('Please select a time slot.');
                 return;
             }
-            
+
             // Check if user is logged in (mock check)
             const isLoggedIn = localStorage.getItem('currentUser');
-            
+
             if (!isLoggedIn) {
                 openLoginModal();
                 return;
             }
-            
+
             // Proceed with booking
             const hour = parseInt(selectedTime.split(':')[0]);
             const isPeakHour = hour >= 18 && hour <= 20;
             const price = isPeakHour ? 40 : 28;
-            
+
             const bookingData = {
                 court: 'Champions Court',
                 date: document.getElementById('bookingDate').value,
                 time: selectedTime,
                 price: price
             };
-            
+
             // Mock booking process
             alert(`Booking confirmed for ${bookingData.date} at ${bookingData.time}. Total: $${bookingData.price}`);
         }
@@ -340,4 +351,5 @@
         }
     </script>
 </body>
+
 </html>
