@@ -8,7 +8,7 @@ const mockUsers = [
         password: 'admin123',
         name: 'La del Pibe Admin',
         role: 'admin',
-        courtId: 'la-del-pibe'
+        courtId: 'La del Pibe'
     },
     {
         id: 2,
@@ -16,7 +16,7 @@ const mockUsers = [
         password: 'admin123',
         name: 'Elite Sports Admin',
         role: 'admin',
-        courtId: 'elite-sports'
+        courtId: 'La Patiada'
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const mockUsers = [
         password: 'admin123',
         name: 'Champions Court Admin',
         role: 'admin',
-        courtId: 'champions-court'
+        courtId: 'La Tiburona'
     },
     {
         id: 4,
@@ -32,7 +32,7 @@ const mockUsers = [
         password: 'admin123',
         name: 'Golden Field Admin',
         role: 'admin',
-        courtId: 'golden-field'
+        courtId: 'La 21 Futbol Club'
     },
     {
         id: 5,
@@ -40,7 +40,7 @@ const mockUsers = [
         password: 'admin123',
         name: 'Victory Arena Admin',
         role: 'admin',
-        courtId: 'victory-arena'
+        courtId: 'Cancha Brasileirao'
     },
     {
         id: 6,

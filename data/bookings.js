@@ -4,7 +4,7 @@
 let mockBookings = [
     {
         id: 'BKG1705321200001',
-        courtId: 'la-del-pibe',
+        courtId: 'La del Pibe',
         userId: 6,
         date: '2025-01-20',
         time: '18:00',
@@ -37,7 +37,7 @@ let mockBookings = [
     },
     {
         id: 'BKG1705321200002',
-        courtId: 'elite-sports',
+        courtId: 'La Patiada',
         userId: 7,
         date: '2025-01-21',
         time: '19:00',
@@ -69,7 +69,7 @@ let mockBookings = [
     },
     {
         id: 'BKG1705321200003',
-        courtId: 'champions-court',
+        courtId: 'La Tiburona',
         userId: 6,
         date: '2025-01-22',
         time: '20:00',
